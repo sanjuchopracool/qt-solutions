@@ -73,6 +73,7 @@ public:
     bool m_modified;
 
     QtAbstractPropertyManager * const m_manager;
+    IPropertyInterface * object = nullptr;
 };
 
 class QtAbstractPropertyManagerPrivate
@@ -496,6 +497,16 @@ void QtProperty::removeSubProperty(QtProperty *property)
         }
         pos++;
     }
+}
+
+void QtProperty::setPropertyObject(IPropertyInterface *obj)
+{
+    d_ptr->object = obj;
+}
+
+IPropertyInterface *QtProperty::getPropertyObject() const
+{
+    return d_ptr->object;
 }
 
 /*!

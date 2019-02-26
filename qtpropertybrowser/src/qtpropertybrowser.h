@@ -70,7 +70,7 @@ typedef QLineEdit::EchoMode EchoMode;
 
 class QtAbstractPropertyManager;
 class QtPropertyPrivate;
-
+class IPropertyInterface;
 class QT_QTPROPERTYBROWSER_EXPORT QtProperty
 {
 public:
@@ -102,6 +102,10 @@ public:
     void addSubProperty(QtProperty *property);
     void insertSubProperty(QtProperty *property, QtProperty *afterProperty);
     void removeSubProperty(QtProperty *property);
+
+    void setPropertyObject(IPropertyInterface* obj);
+    IPropertyInterface *getPropertyObject() const;
+
 protected:
     explicit QtProperty(QtAbstractPropertyManager *manager);
     void propertyChanged();
